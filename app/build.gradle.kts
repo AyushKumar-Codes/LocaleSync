@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "io.github.ayushkumar.localesync"
+    namespace = "io.github.ayushkumar.localeSyncApp"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "io.github.ayushkumar.localesync"
+        applicationId = "io.github.ayushkumar.localeSyncApp"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

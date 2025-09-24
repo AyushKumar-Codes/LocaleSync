@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "LocaleSync"
 include(":app")
-include(":LocalSync")
+include(":LocaleSync")
