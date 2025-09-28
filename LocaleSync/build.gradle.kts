@@ -26,11 +26,15 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    kotlin {
+        jvmToolchain(17)
     }
 }
 
@@ -50,12 +54,10 @@ dependencies {
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
 
-    // OkHttp logging
-    implementation (libs.logging.interceptor)
 
     // Hilt
-    implementation (libs.google.hilt.android)
-    ksp(libs.hilt.android.compiler.v2571)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
     // Coroutines (for suspend functions)
     implementation (libs.kotlinx.coroutines.core)

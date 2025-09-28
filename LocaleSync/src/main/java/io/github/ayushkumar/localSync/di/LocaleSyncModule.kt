@@ -1,8 +1,10 @@
 package io.github.ayushkumar.localSync.di
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 import io.github.ayushkumar.localSync.data.remote.LocaleSyncAPI
@@ -14,7 +16,7 @@ import retrofit2.create
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ViewModelScoped::class)
+@InstallIn(SingletonComponent::class)
 object LocaleSyncModule {
     @Provides
     @Singleton
@@ -29,8 +31,8 @@ object LocaleSyncModule {
     }
     @Provides
     @Singleton
-    fun providesLocalSyncRepository(remote: LocaleSyncRemoteDataSource , storage: LocalizationStorage) : LocaleSyncRepository{
-        return LocaleSyncRepository(remote,storage)
+    fun providesLocalSyncRepository(remote: LocaleSyncRemoteDataSource , storage: LocalizationStorage , @ApplicationContext context: Context) : LocaleSyncRepository{
+        return LocaleSyncRepository(remote,storage , context)
     }
 
 

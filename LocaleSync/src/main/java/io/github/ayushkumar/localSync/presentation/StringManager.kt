@@ -9,7 +9,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class BsStringManager @Inject constructor(
+class StringManager @Inject constructor(
     private val useCase: GetLocalizedStringUseCase,
     private val repository: LocaleSyncRepository
 ) {

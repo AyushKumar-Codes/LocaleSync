@@ -7,5 +7,5 @@ import dagger.hilt.components.SingletonComponent
 @EntryPoint
 @InstallIn(SingletonComponent::class)
 interface LocalizationEntryPoint {
-    fun bsStringManager(): BsStringManager
+    fun bsStringManager(): StringManager
 }

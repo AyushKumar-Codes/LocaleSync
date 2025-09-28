@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp") // Add this line
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -28,11 +30,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+    kotlin {
+        jvmToolchain(17)
     }
     buildFeatures {
         compose = true
@@ -56,4 +61,21 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+//    Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+//    Retrofit
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+
+//    LocaleSync
+    implementation(project(":LocaleSync"))
+
+
+    // OkHttp logging
+    implementation (libs.logging.interceptor)
+
+
 }
