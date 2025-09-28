@@ -14,6 +14,7 @@ class StringManager @Inject constructor(
     private val repository: LocaleSyncRepository
 ) {
     private var selectedLanguage: String = "en"
+    private var localizationUrl: String? = null
 
     fun setLanguage(language: String) {
         selectedLanguage = language
@@ -23,9 +24,35 @@ class StringManager @Inject constructor(
         return useCase(selectedLanguage, key, args.toList())
     }
 
+    /**
+     * Initialize once at app startup
+     */
     fun initialize(fullUrl: String) {
+        localizationUrl = fullUrl
         CoroutineScope(Dispatchers.IO).launch {
             repository.fetchAndCacheLocalization(fullUrl)
+        }
+    }
+
+    /**
+     * Update localization strings from the previously initialized URL
+     * Optional callback for success/failure
+     */
+    fun updateLocalization(onComplete: ((success: Boolean) -> Unit)? = null) {
+        val url = localizationUrl
+        if (url == null) {
+            onComplete?.let { it(false) } // URL not initialized
+            return
+        }
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                repository.fetchAndCacheLocalization(url)
+                onComplete?.let { it(true) }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                onComplete?.let { it(false) }
+            }
         }
     }
 }

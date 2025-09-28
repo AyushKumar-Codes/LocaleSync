@@ -14,7 +14,7 @@ class LocaleSync: Application() {
         super.onCreate()
 
         bsStringManager.initialize("https://www.jsonkeeper.com/b/GTACT")
-        bsStringManager.setLanguage("hi")
+        bsStringManager.setLanguage("en")
 
     }
 

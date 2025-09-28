@@ -4,6 +4,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.github.ayushkumar.localSync.data.repository.LocaleSyncRepository
+import io.github.ayushkumar.localSync.domain.usecase.GetLocalizedStringUseCase
+import io.github.ayushkumar.localSync.presentation.StringManager
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -40,4 +43,18 @@ object AppNetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
+
+//    private const val DEFAULT_URL = "https://www.jsonkeeper.com/b/GTACT"
+//
+//    @Provides
+//    @Singleton
+//    fun provideStringManager(
+//        useCase: GetLocalizedStringUseCase,
+//        repository: LocaleSyncRepository
+//    ): StringManager {
+//        return StringManager(useCase, repository).apply {
+//            initialize(DEFAULT_URL)
+//        }
+//    }
 }
