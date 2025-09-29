@@ -142,6 +142,37 @@ Refresh translations manually:
 stringManager.fetchAndUpdate()
 ```
 
+
+## JSON Structure for Translations
+
+The remote JSON should follow this structure:
+
+```json
+{
+  "en": {
+    "app_name": "LocaleSync",
+    "welcome_message": "Welcome to LocaleSync!",
+    "login_button": "Login"
+  },
+  "hi": {
+    "app_name": "लोकलसिंक",
+    "welcome_message": "लोकलसिंक में आपका स्वागत है!",
+    "login_button": "लॉगिन"
+  },
+  "fr": {
+    "app_name": "LocaleSync",
+    "welcome_message": "Bienvenue sur LocaleSync!",
+    "login_button": "Connexion"
+  }
+}
+```
+#### Guidelines
+
+* Each top-level key is a language code (e.g., en, hi, fr).
+* Inside each language, the keys represent your string keys used in code.
+* The values are the translated strings.
+* To add a new language, simply add a new top-level language code object with the same keys and translated values.
+
 ## 🔑 Example
 
 Inside an Activity/Fragment:
