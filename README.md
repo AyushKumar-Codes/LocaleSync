@@ -139,7 +139,7 @@ val value = stringManager.getString("welcome_message")
 Refresh translations manually:
 
 ```kotlin
-stringManager.fetchAndUpdate()
+stringManager.updateLocalization()
 ```
 
 
