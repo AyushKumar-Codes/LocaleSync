@@ -4,8 +4,6 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("com.google.devtools.ksp") // Add this line
     id("com.google.dagger.hilt.android")
-    id("maven-publish")
-    id("signing")
 }
 
 android {

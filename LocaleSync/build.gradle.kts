@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp") // Add this line
     id("com.google.dagger.hilt.android")
+    id("com.vanniktech.maven.publish") version "0.34.0"
 }
 
 android {
@@ -35,6 +36,37 @@ android {
 
     kotlin {
         jvmToolchain(17)
+    }
+}
+
+
+mavenPublishing {
+    coordinates("io.github.ayushkumarmaven", "localesync", "1.0.0")
+
+    pom {
+        name.set("LocaleSync")
+        description.set("A Kotlin/Android library for dynamic localization with server-driven updates.")
+        inceptionYear.set("2025")
+        url.set("https://github.com/AyushKumar-Codes/LocaleSync")
+        licenses {
+            license {
+                name.set("The Apache License, Version 2.0")
+                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+            }
+        }
+        developers {
+            developer {
+                id.set("AyushKumar-Codes")
+                name.set("Ayush Kumar")
+                url.set("https://github.com/AyushKumar-Codes")
+            }
+        }
+        scm {
+            url.set("https://github.com/AyushKumar-Codes/LocaleSync")
+            connection.set("scm:git:git://github.com/AyushKumar-Codes/LocaleSync.git")
+            developerConnection.set("scm:git:ssh://git@github.com/AyushKumar-Codes/LocaleSync.git")
+        }
     }
 }
 
