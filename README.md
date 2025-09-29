@@ -11,6 +11,9 @@ With LocaleSync, you can download translations from a remote server, store them 
 - ⚡ Context extensions for seamless access to translated strings.
 - 🛠 Configurable initialization (custom endpoint + default language).
 
+
+#### Maven Central Artifact: https://central.sonatype.com/artifact/io.github.ayushkumarmaven/localesync
+
 ## 📦 Installation
 
 Add the dependency to your Gradle build file:
