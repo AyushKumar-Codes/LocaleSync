@@ -14,6 +14,9 @@ With LocaleSync, you can download translations from a remote server, store them 
 
 #### Maven Central Artifact: https://central.sonatype.com/artifact/io.github.ayushkumarmaven/localesync
 
+🎥 **Video Demonstration (LinkedIn):**  
+[Watch the demo on LinkedIn](https://www.linkedin.com/posts/ayush---kumar_android-opensource-mavencentral-activity-7378503083879960576-rBzU?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD5AXR4Bbo6fDbrjImVuADwY4KCCTDDMIT8)
+
 ## 📦 Installation
 
 Add the dependency to your Gradle build file:
