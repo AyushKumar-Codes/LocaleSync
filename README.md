@@ -149,6 +149,22 @@ stringManager.updateLocalization()
 ```
 
 
+# 🧱 Clean Architecture Integration
+
+LocaleSync follows **Clean Architecture principles**, allowing seamless integration into your layered project:
+
+- **Domain Layer** → Define a `GetLocalizedStringUseCase` to fetch translated strings.
+- **Data Layer** → `LocaleSyncRepository` handles data sources (remote JSON via Retrofit + local storage).
+- **Presentation Layer** → Inject `StringManager` into your ViewModels or UI classes using Hilt.
+
+## Example Flow
+**UI (Activity/Compose)** → **ViewModel** → **UseCase (`GetLocalizedStringUseCase`)** → **Repository (`LocaleSyncRepository`)** → **StringManager (Retrofit + Cache)**
+
+## Benefits
+- ✅ **Separation of concerns**
+- ✅ **Testable business logic** (use cases can be unit tested independently)
+- ✅ **Easy to replace/extend data sources** (e.g., switch from REST to GraphQL without UI changes)
+
 ## JSON Structure for Translations
 
 The remote JSON should follow this structure:
